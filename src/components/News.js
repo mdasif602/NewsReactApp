@@ -11,6 +11,7 @@ const News = (props) => {
     const [loading, setloading] = useState(true)
     const [page, setpage] = useState(1);
     const [totalResults, setTotalResults] = useState(0);
+
     // constructor(props) {
     //     super(props);
     //     console.log("hello i am a constructor from news Component");
@@ -41,6 +42,7 @@ const News = (props) => {
     }
 
     useEffect(() => {
+      document.title = `${props.category.charAt(0).toUpperCase() + props.category.substring(1)} - NewsApp`;
       updateNews();
     }, [])
     
@@ -119,7 +121,7 @@ const News = (props) => {
     console.log("render");
     return (
       <>
-        <h1 className="text-center" style = {{margin: "25px 0px"}}>NewsApp - Top Headlines from {props.category.charAt(0).toUpperCase() + props.category.substring(1)} category</h1>
+        <h1 className="text-center" style = {{margin: "25px 0px", marginTop: "78px"}}>NewsApp - Top Headlines from {props.category.charAt(0).toUpperCase() + props.category.substring(1)} category</h1>
         {loading && <Spinner/>}
         {/* {this.state.loading && <Spinner/>} */}
         {/* <div className="row">
